@@ -1,0 +1,265 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Apple chancery", cursive;
+  height: 100%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #001f3f, #003f88, #007bff);
+  color: #fff;
+}
+
+.container {
+  height: 100vh;
+  overflow: hidden;
+  perspective: 1000px;
+}
+
+/* Splash */
+.splash {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #003f88, #011e3d, #282829);
+  z-index: 10;
+}
+
+.logo {
+  width: 120px;
+  height: 120px;
+  background: white;
+  padding: 20px;
+  border-radius: 50%;
+  box-shadow: 0 0 40px rgba(0, 200, 255, 0.5);
+}
+
+.title {
+  margin-top: 20px;
+  font-size: 2rem;
+  background: linear-gradient(to right, #00e0ff, #007bff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  margin-top: 15px;
+  font-size: 1.1rem;
+  color: #cce7ff;
+  text-align: center;
+  width: 80%;
+}
+
+/* Main */
+.main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Header */
+.header {
+  padding: 25px 60px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.mini-logo {
+  width: 70px;
+  height: 70px;
+  background: white;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.brand {
+  font-size: 1.6rem;
+  background: linear-gradient(to right, #00e0ff, #00aaff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* HERO + AUTH LAYOUT */
+.hero-auth-wrapper {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1.6fr 0.8fr; /* 🔥 hero gets MORE space */
+  align-items: center;
+  padding: 0 120px;                  /* 🔥 more breathing room */
+  gap: 80px;
+  overflow: hidden;
+}
+
+/* Hero */
+.hero-left {
+  text-align: left;
+  max-width: 720px;      /* 🔥 wider hero */
+}
+
+.headline {
+  font-size: 2.8rem;
+  background: linear-gradient(to right, #00e0ff, #007bff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subheadline {
+  font-size: 2rem;
+  color: #b3d9ff;
+}
+
+.description {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: #cce7ff;
+  line-height: 1.6;
+}
+
+/* Typing Cursor */
+.headline::after,
+.subheadline::after,
+.description::after {
+  content: "|";
+  animation: blink 1s infinite;
+  margin-left: 4px;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 0; }
+  25%, 75% { opacity: 1; }
+}
+
+/* Auth Card */
+.registration-card {
+  width: 350px;
+  justify-self: end;     /* locks right */
+  align-self: start;     /* moves UP */
+  margin-top: 40px;     /* final fine-tune */
+  perspective: 1200px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+}
+
+.registration-card.signup .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  padding: 30px;
+  backface-visibility: hidden;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.card-front input,
+.card-back input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  color: #fff;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+}
+
+.toggle {
+  display: block;
+  margin-top: 15px;
+  text-align: center;
+  color: #00e0ff;
+}
+
+.socials {
+  display: flex;
+  gap: 10px;
+}
+
+.extras {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  color: #a5d8ff;
+}
+/* Registration Modal */
+.registration-form-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+}
+
+.registration-form {
+  background: #0a1a2f;
+  width: 70%;
+  max-width: 800px;
+  padding: 30px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.registration-form input {
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.btn.cancel-btn {
+  background: #555;
+  color: #fff;
+}
+
